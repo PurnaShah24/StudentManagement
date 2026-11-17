@@ -110,4 +110,4 @@ These Git commands are examples for you to run; no Git commands are run automati
 
 `git merge --no-ff release/1.0.0` brings any release fixes back into `develop`.
 
-`git push origin develop` uploads the updated integration branch.
+`git push origin develop` uploads the updated integration branch."# StudentManagement" 
