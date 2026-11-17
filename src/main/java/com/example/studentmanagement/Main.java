@@ -7,46 +7,32 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<Student> students = new ArrayList<Student>();
-        Scanner scanner = new Scanner(System.in);
-        int choice = 0;
+        ArrayList<Student> students = new ArrayList<>();
+        try (Scanner scanner = new Scanner(System.in)) {
+            int choice = 0;
 
-        while (choice != 6) {
-            System.out.println("\n===== STUDENT MANAGEMENT SYSTEM =====");
-            System.out.println("1. Add Student");
-            System.out.println("2. View All Students");
-            System.out.println("3. Search Student");
-            System.out.println("4. Update Student");
-            System.out.println("5. Delete Student");
-            System.out.println("6. Exit");
+            while (choice != 6) {
+                System.out.println("\n===== STUDENT MANAGEMENT SYSTEM =====");
+                System.out.println("1. Add Student");
+                System.out.println("2. View All Students");
+                System.out.println("3. Search Student");
+                System.out.println("4. Update Student");
+                System.out.println("5. Delete Student");
+                System.out.println("6. Exit");
 
-            choice = readInteger(scanner, "Enter your choice: ");
+                choice = readInteger(scanner, "Enter your choice: ");
 
-            switch (choice) {
-                case 1:
-                    addStudent(scanner, students);
-                    break;
-                case 2:
-                    viewStudents(students);
-                    break;
-                case 3:
-                    searchStudent(scanner, students);
-                    break;
-                case 4:
-                    updateStudent(scanner, students);
-                    break;
-                case 5:
-                    deleteStudent(scanner, students);
-                    break;
-                case 6:
-                    System.out.println("Goodbye!");
-                    break;
-                default:
-                    System.out.println("Please choose a number from 1 to 6.");
+                switch (choice) {
+                    case 1 -> addStudent(scanner, students);
+                    case 2 -> viewStudents(students);
+                    case 3 -> searchStudent(scanner, students);
+                    case 4 -> updateStudent(scanner, students);
+                    case 5 -> deleteStudent(scanner, students);
+                    case 6 -> System.out.println("Goodbye!");
+                    default -> System.out.println("Please choose a number from 1 to 6.");
+                }
             }
         }
-
-        scanner.close();
     }
 
     // Read an integer without ending the program when the input is not a number.
